@@ -1,5 +1,5 @@
 node default {
 file {'/roo/README':
-  encure => file,
+  ensure => file,
   }
 }
