@@ -1,1 +1,1 @@
-calss porfile::db {}
+calss profile::db {}
