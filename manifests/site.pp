@@ -6,6 +6,7 @@ node 'master.puppet.vm' {
     ensure => file,
     content => $fqdn,
   }
+}
 
 node /^web/ {
   include role::app_server
