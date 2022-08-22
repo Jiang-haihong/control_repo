@@ -26,7 +26,6 @@ class minecraft (
         ##source => 'puppet:///modules/minecraft/minecraft.service',
         content  => epp('minecraft/minecraft.service',{
         install_dir => $install_dir,}),
-        ,
         }
         
        service {'minecraft':
