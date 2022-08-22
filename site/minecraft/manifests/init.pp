@@ -1,18 +1,22 @@
-class minecraft {
-  file {'/opt/minecraft':
+class minecraft (
+  $url = 'https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar',
+  $install_dir = '/opt/minecraft'
+  )
+{
+  file {$install_dir:
     ensure => directory,
     }
     
-   file {'/opt/minecraft/minecraft_server.jar':
+   file {"{${install_dir}/minecraft_server.jar":
     ensure => file,
-    source => 'https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar',
+    source => $url,
     before => Service['minecraft'],
    }
     package {'java':
       ensure => present,
       }
       
-    file {'/opt/minecraft/eula.txt':
+    file {"${install_dir}/eula.txt":
       ensure => file,
       content => 'eula=ture',
       }
